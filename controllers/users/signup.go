@@ -10,6 +10,8 @@ import (
 )
 
 // Create a new user (SignUp)
+// @desc Create user (SignUp)
+// @Router /api/users/ [post]
 func SignUp(ctx *fiber.Ctx) error {
 	// retrieve data from context
 	var body Request

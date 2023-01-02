@@ -9,6 +9,8 @@ import (
 )
 
 // List all users
+// @desc List all users
+// @Router /api/users/ [get]
 func GetAll(ctx *fiber.Ctx) error {
 	// get all users
 	var users []models.User

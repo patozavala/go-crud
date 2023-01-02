@@ -3,10 +3,13 @@ package routers
 import (
 	"go-crud/controllers/blogs"
 	"go-crud/controllers/users"
+	"go-crud/middlewares"
 
 	"github.com/gofiber/fiber/v2"
 )
 
+// Set up routes
+// @desc Set up routes
 func SetUpRoutes(app *fiber.App) {
 
 	api := app.Group("/api")
@@ -19,6 +22,7 @@ func SetUpRoutes(app *fiber.App) {
 	usersGroup.Post("/login", users.Login)
 	usersGroup.Put("/:id", users.Update)
 	usersGroup.Delete("/:id", users.Delete)
+	usersGroup.Get("/:id/validate", middlewares.RequireAuth, users.ValidateAuth)
 
 	//http://localhost:3000/api/blogs
 	blogsGroup := api.Group("/blogs")

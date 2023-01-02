@@ -9,6 +9,8 @@ import (
 )
 
 // Get user by id
+// @desc Get user by id
+// @Router /api/users/:id [get]
 func GetById(ctx *fiber.Ctx) error {
 	// get user id from the url
 	id := ctx.Params("id")

@@ -12,6 +12,9 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
+// Login function for users
+// @desc Login for users
+// @Router /api/users/:id [post]
 func Login(ctx *fiber.Ctx) error {
 	// retrieve data from context
 	var body Request
@@ -46,9 +49,14 @@ func Login(ctx *fiber.Ctx) error {
 		return ctx.Status(http.StatusBadRequest).SendString("Failed to create token")
 	}
 
-	// send token back to the user
-	return ctx.Status(http.StatusOK).JSON(fiber.Map{
-		"token":   tokenString,
-		"message": "now you are logged in 👋!",
+	// send token back to the user as a cookie
+	ctx.Cookie(&fiber.Cookie{
+		Name:     "AuthToken",
+		Value:    tokenString,
+		MaxAge:   3600 * 24,
+		HTTPOnly: true,
+		Secure:   false,
 	})
+
+	return ctx.Status(http.StatusOK).SendString("Now you are logged in 👋!")
 }

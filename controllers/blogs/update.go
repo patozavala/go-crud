@@ -9,6 +9,8 @@ import (
 )
 
 // Update blog
+// @desc Update blog
+// @Router /api/users/:id [put]
 func Update(ctx *fiber.Ctx) error {
 	// retrieve blog id from url
 	id := ctx.Params("id")

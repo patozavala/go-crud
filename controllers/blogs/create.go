@@ -8,7 +8,9 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-// Create a new blog (SignUp)
+// Create blog
+// @desc Create blog
+// @Router /api/users/ [post]
 func Create(ctx *fiber.Ctx) error {
 	// retrieve data from context
 	var body Request

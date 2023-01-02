@@ -9,6 +9,8 @@ import (
 )
 
 // Delete an existent blog
+// @desc Delete
+// @Router /api/users/:id [delete]
 func Delete(ctx *fiber.Ctx) error {
 	// retrieve blog id from url
 	id := ctx.Params("id")

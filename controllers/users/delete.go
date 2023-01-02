@@ -9,6 +9,8 @@ import (
 )
 
 // Delete an existent user
+// @desc Delete user
+// @Router /api/users/:id [delete]
 func Delete(ctx *fiber.Ctx) error {
 	// retrieve user id from url
 	id := ctx.Params("id")

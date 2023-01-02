@@ -17,6 +17,7 @@ This is an introductory project to look how Go works. This project is not produc
 
 Some improvements need to be implemented before the app is ready for production
 
-- Avoid SQL injection
 - Implement middlewares
 - Implement testing
+- Accelerate queries
+- Add descriptions and metadata to functions
